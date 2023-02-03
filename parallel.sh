@@ -1,15 +1,12 @@
 #!/bin/zsh
-function sigint_impl () {
-    echo "pid:${PID}. 並列処理が中断されました."
-    exit 1
-}
-
 function main() {
-    echo "pid:${PID}. 並列処理開始、10秒で終了します."
-    trap 'sigint_impl' SIGINT
-    sleep 100
+    echo "pid:${PID}. 並列処理開始、${SLEEP}秒で終了します."
+    sleep $(($SLEEP / 2))
+    echo "pid:${PID}. 並列処理進捗:1/2"
+    sleep $(($SLEEP / 2))
     echo "pid:${PID}. 並列処理終了."
 }
 
 PID=$$
+SLEEP=$1
 main
