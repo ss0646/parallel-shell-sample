@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 echo "メイン処理開始、5秒で終わります"
 
 ./parallel.sh &
